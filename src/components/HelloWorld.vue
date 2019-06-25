@@ -27,10 +27,14 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <van-button type="primary" >哈哈</van-button>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
+  import { Button } from 'vant'
+  Vue.use(Button)
 export default {
   name: 'HelloWorld',
   props: {
