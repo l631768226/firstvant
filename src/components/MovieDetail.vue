@@ -5,6 +5,12 @@
 </template>
 
 <script>
+
+    import Vue from 'vue'
+    import { Row, Col } from 'vant'
+
+    Vue.use(Row).use(Col)
+
     export default {
         name: "MovieDetail",
         data(){

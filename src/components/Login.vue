@@ -18,6 +18,7 @@
             />
         </van-cell-group>
         <van-button  type="primary" v-on:click="login">登录</van-button>
+
         <van-button type="primary" v-on:click="register">注册</van-button>
     </div>
 </template>
@@ -67,11 +68,19 @@
                         //请求成功 页面跳转
                         this.$router.push({path:'/movieList'})
                     }else{
-                        alert(response.data.msg)
+                        //接口请求 业务错误
+                        Dialog.alert({
+                            title: "提示",
+                            message: response.data.msg
+                        })
                     }
 
-                }).catch((response)=>{
-                    alert("fail " + response.data.msg)
+                }).catch(()=>{
+                    //网络请求异常
+                    Dialog.alert({
+                        title: "提示",
+                        message: "网络请求异常"
+                    })
                 })
             },
             register(){
@@ -83,6 +92,7 @@
         }
     }
 
+    //校验是否为空
     function isEmpty(obj){
         if(typeof obj == "undefined" || obj == null || obj == ""){
             return true;
@@ -92,6 +102,10 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="less">
+    .van-button{
+        &--normal:not(:last-child){
+            margin-right: 20px;
+         }
+    }
 </style>
